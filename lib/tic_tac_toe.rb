@@ -54,8 +54,8 @@ def turn(board)
   user_input=gets.chomp
   index=input_to_index(user_input)
   if valid_move?(board,index)
-    player_token=current_player(board)
-    move(board,index,player_token)
+    player_turn=current_player(board)
+    move(board,index,player_turn)
     display_board(board)
   else
     turn(board)
