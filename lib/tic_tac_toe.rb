@@ -16,3 +16,42 @@ def display_board(board)
   puts "-----------"
   puts "#{board[6]} | #{board[7]} | #{board[8]}"
 end
+
+def input_to_index(user_input)
+  user_input.to_i-1
+end
+
+def move(board,index,current_player)
+  board[index]=current_player
+end
+
+def position_taken?(board,index)
+  !(board[index].nil? || board[index]==" ")
+end
+
+def turn_count(board)
+  turn=0
+  board.each do |index|
+    if index=="X" || index=="0"
+      turn+=1
+    end
+  end
+  return turn
+end
+
+def current_player(board)
+  number_turns=turn_count(board)
+  if number_turns % 2 == 0
+    player="X"
+  else
+    player="O"
+  end
+  return player
+end
+
+def turn(board)
+  puts "Please choose a number 1-9:"
+  user_input=gets.chomp
+  index=input_to_index(user_input)
+  if valid_move?(board,index)
+    player_
