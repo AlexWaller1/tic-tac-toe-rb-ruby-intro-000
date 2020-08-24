@@ -114,3 +114,15 @@ def winner (board)
    end
  end
 end
+
+def play(board)
+  until over?(board)==true
+    turn(board)
+  end
+
+  if won?(board)
+    puts "Way To Go #{winner(board)}!"
+  elsif draw?(board)
+    puts "Tie Game!"
+  end
+end
